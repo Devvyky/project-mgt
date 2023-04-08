@@ -1,10 +1,6 @@
 const express = require('express');
 
 const taskController = require('../controllers/taskController');
-const {
-  tasksAssignedDueToProjects,
-  projectsWithTaskDueToday,
-} = require('../aggregation/aggregate');
 
 const router = express.Router();
 
@@ -17,5 +13,4 @@ router
 
 router.route('/:id/reset').patch(taskController.resetTask);
 
-router.get('/due-projects', projectsWithTaskDueToday);
 module.exports = router;
